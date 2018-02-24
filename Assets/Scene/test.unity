@@ -583,10 +583,12 @@ MonoBehaviour:
   noteSync: 0
   noteMinTime: 0
   noteMaxTime: 0
-  time: -3
+  auto: 1
   noteSpawn: {fileID: 0}
   noteJudgement: {fileID: 0}
   combo: 0
+  noteDataPath: 
+  time: -3
   lines:
   - {fileID: 996952852}
   - {fileID: 1880884228}

@@ -39,11 +39,11 @@ public class NoteSpawn : MonoBehaviour
             }
         }
 
-		// StartCoroutine(DebugDragNote());
+		//StartCoroutine(DebugBatterNote());
 		TextAsset noteDataString = Resources.Load<TextAsset>(g.noteDataPath);
 		reader = new NoteDataReader();
 		reader.ReadData(noteDataString.text);
-
+        
 		noteDatas = reader.datas;
 		g.bpm = reader.startBPM;
 		g.noteSync = reader.noteSync;
@@ -231,7 +231,6 @@ public class NoteSpawn : MonoBehaviour
 				data.time = (count * 5f) * (120f / g.bpm);
 				data.batterEndTime = (count * 5f + 3f) * (120f / g.bpm);
 				data.batterHit = Random.Range(4, 17);
-				data.lineNum = 0;
 				noteDatas.Add(data);
 				
 				++count;

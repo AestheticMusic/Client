@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
 	public float noteMinTime = 0f;
 	// [HideInInspector]
 	public float noteMaxTime = 0f;
-	
+
+    public bool auto = false;
+
 	[HideInInspector]
 	public NoteSpawn noteSpawn;
 	[HideInInspector]
@@ -96,9 +98,12 @@ public class GameManager : MonoBehaviour
 
 	private void DebugLoad()
 	{
-		noteDataPath = "NoteDatas/DARK FORCE_Hard";
-		AudioClip music = Resources.Load<AudioClip>("Musics/DARK FORCE");
-		m.LoadMusic(music);
+
+        //noteDataPath = "NoteDatas/DARK FORCE_Hard";
+        //AudioClip music = Resources.Load<AudioClip>("Musics/DARK FORCE");
+        noteDataPath = "NoteDatas/LastBattle";
+        AudioClip music = Resources.Load<AudioClip>("Musics/LastBattle");
+        m.LoadMusic(music);
 	}
 
     private void Update()

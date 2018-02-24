@@ -55,7 +55,15 @@ public class Player : MonoBehaviour
     /// <param name="_lineNum">판정 방향</param>
     public void PlayAction(int _lineNum)
     {
-        if (ConvertDir(_lineNum) == -1)
+        if (_lineNum == 2)
+        {
+            ani.SetTrigger("LeftArm");
+            ani.SetFloat("LeftNormal", Random.Range(1, 1));
+
+            ani.SetTrigger("RightArm");
+            ani.SetFloat("RightNormal", Random.Range(1, 1));
+        }
+        else if (ConvertDir(_lineNum) == -1)
         {
             ani.SetTrigger("LeftArm");
             ani.SetFloat("LeftNormal", Random.Range(1, 1));
@@ -97,7 +105,7 @@ public class Player : MonoBehaviour
         else if (ConvertDir(_lineNum) == 1)
         {
             ani.SetTrigger("RightArm");
-            ani.SetFloat    ("RightNormal", -1);
+            ani.SetFloat("RightNormal", -1);
             ani.SetFloat("RightMaintain", _during);
         }
 
