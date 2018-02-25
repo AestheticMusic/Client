@@ -17,9 +17,7 @@ public class NoteJudgement : MonoBehaviour
     private GameManager g;
     private TouchManager t;
     private EffectManager e;
-
-
-
+    
     private void Start()
     {
         g = GameManager.instance;

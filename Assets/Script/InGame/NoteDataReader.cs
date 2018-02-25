@@ -17,7 +17,8 @@ public class NoteDataReader
 		string[] lines = _ntd.Split('\n');
 		datas = new List<NoteData>();
 		NoteData data = null;
-		foreach (string line in lines)
+        NoteCameraData cameraData = null;
+        foreach (string line in lines)
 		{
 			if (string.IsNullOrEmpty(line))
 				break;
@@ -57,7 +58,39 @@ public class NoteDataReader
 					data.time = int.Parse(words[2]) / 1000f;
 					data.batterEndTime = int.Parse(words[3]) / 1000f;
 					break;
-				default:
+                case "POS":
+                    cameraData = new NoteCameraData();
+                    cameraData.noteType = NoteCamera.N_POS;
+                    string[] startPos = words[1].Replace("(", "").Replace(")", "").Split(',');
+                    cameraData.startPos = new Vector2(float.Parse(startPos[0]), float.Parse(startPos[1]));
+                    string[] endPos = words[2].Replace("(", "").Replace(")", "").Split(',');
+                    cameraData.endPos = new Vector2(float.Parse(endPos[0]), float.Parse(endPos[1]));
+                    cameraData.curvePos = int.Parse(words[3]);
+                    cameraData.time = int.Parse(words[4]) / 1000f;
+                    cameraData.endTime = int.Parse(words[5]) / 1000f;
+                    CameraManager.instance.AddNoteCameraData(cameraData);
+                    break;
+                case "ROT":
+                    cameraData = new NoteCameraData();
+                    cameraData.noteType = NoteCamera.N_ROT;
+                    cameraData.startRot = float.Parse(words[1]);
+                    cameraData.endRot = float.Parse(words[2]);
+                    cameraData.curveRot = int.Parse(words[3]);
+                    cameraData.time = int.Parse(words[4]) / 1000f;
+                    cameraData.endTime = int.Parse(words[5]) / 1000f;
+                    CameraManager.instance.AddNoteCameraData(cameraData);
+                    break;
+                case "ZOOM":
+                    cameraData = new NoteCameraData();
+                    cameraData.noteType = NoteCamera.N_ZOOM;
+                    cameraData.startZoom = float.Parse(words[1]);
+                    cameraData.endZoom = float.Parse(words[2]);
+                    cameraData.curveZoom = int.Parse(words[3]);
+                    cameraData.time = int.Parse(words[4]) / 1000f;
+                    cameraData.endTime = int.Parse(words[5]) / 1000f;
+                    CameraManager.instance.AddNoteCameraData(cameraData);
+                    break;
+                default:
 					Debug.LogError("NoteDataReader::Type Unknown : " + words[0]);
 					break;
 			}
