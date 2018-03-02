@@ -51,7 +51,7 @@ public class Note : MonoBehaviour
         if (!g.auto)
             return;
 
-        if (Mathf.Abs(timeInterval) <= 0.01f)
+        if (Mathf.Abs(timeInterval) <= 0.03f)
         {
             g.noteJudgement.HitNote(this);
         }
@@ -67,6 +67,7 @@ public class Note : MonoBehaviour
         else
             notePos.x = disappearDistance * (-timeInterval - NoteJudgement.judgePerfect) / disappearDuration;
         notePos.z = timeInterval;
+        
         this.transform.localPosition = notePos;
     }
 

@@ -4,76 +4,85 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-	public static MusicManager instance;
+    public static MusicManager instance;
 
-	[HideInInspector]
-	public float musicLength = 0f;
-	public float musicTime
-	{
-		get
-		{
-			return musicSource.time;
-		}
-		set
-		{
-			musicSource.time = value;
-		}
-	}
-	public float musicTimeS
-	{
-		get
-		{
-			return (float)musicSource.timeSamples / musicSource.clip.frequency;
-		}
-	}
+    [HideInInspector]
+    public float musicLength = 0f;
+    public float musicTime
+    {
+        get
+        {
+            return musicSource.time;
+        }
+        set
+        {
+            musicSource.time = value;
+        }
+    }
+    public float musicTimeS
+    {
+        get
+        {
+            return (float)musicSource.timeSamples / musicSource.clip.frequency;
+        }
+    }
 
-	private AudioSource musicSource;
-	private AudioSource seSource;
-	private GameManager g;
+    private AudioSource musicSource;
+    private AudioSource[] seSource = new AudioSource[2];
+    private int seSourceIndex = 0;
+    private GameManager g;
 
 
 
-	private void Awake()
-	{
-		instance = this;
+    private void Awake()
+    {
+        instance = this;
 
-		AudioSource[] sources = this.GetComponents<AudioSource>();
-		musicSource = sources[0];
-		seSource = sources[1];
-	}
+        AudioSource[] sources = this.GetComponents<AudioSource>();
+        musicSource = sources[0];
+        seSource[0] = sources[1];
+        seSource[1] = sources[2];
+    }
 
-	private void Start()
-	{
-		g = GameManager.instance;
-	}
+    private void Start()
+    {
+        g = GameManager.instance;
+    }
 
-	private void Update()
-	{
-	}
+    private void Update()
+    {
+    }
 
-	public void LoadMusic(AudioClip _music)
-	{
-		musicSource.clip = _music;
-		musicLength = _music.length;
-	}
+    public void LoadMusic(AudioClip _music)
+    {
+        musicSource.clip = _music;
+        musicLength = _music.length;
+    }
 
-	public void Play()
-	{
-		musicSource.Play();
-	}
+    public void Play()
+    {
+        musicSource.Play();
+    }
 
-	public void Stop()
-	{
-		musicSource.Stop();
-	}
+    public void Stop()
+    {
+        musicSource.Stop();
+    }
 
-	public void Pause()
-	{
-		musicSource.Pause();
-	}
+    public void Pause()
+    {
+        musicSource.Pause();
+    }
 
-	public void UnPause()
-	{
-		musicSource.UnPause();
-	}
+    public void UnPause()
+    {
+        musicSource.UnPause();
+    }
+
+    public void PlaySE(AudioClip _se,float _volume)
+    {
+        seSourceIndex = (seSourceIndex + 1) % 2;
+    
+        seSource[seSourceIndex].PlayOneShot(_se, _volume);
+    }
 }

@@ -72,7 +72,7 @@ public class LongNote : Note
         if (!g.auto)
             return;
 
-        if ((Mathf.Abs(timeInterval) <= 0.01f || (firstTouched && endTimeInterval > 0f)))
+        if ((Mathf.Abs(timeInterval) <= 0.03f || (firstTouched && endTimeInterval > 0f)))
         {
             if (firstTouched)
                 touched = true;

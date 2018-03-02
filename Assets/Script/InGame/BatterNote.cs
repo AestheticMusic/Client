@@ -51,7 +51,7 @@ public class BatterNote : Note
         if (!g.auto)
             return;
 
-        if (batterEnabled && ((Mathf.Abs(timeInterval) <= 0.01f) || endTimeInterval >= 0f))
+        if (batterEnabled && ((Mathf.Abs(timeInterval) <= 0.03f) || endTimeInterval >= 0f))
         {
             //print("timeInterval : " + timeInterval + " / endTimeInterval : " + endTimeInterval);
             g.noteJudgement.HitNote(this);

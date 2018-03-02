@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class NormalNote : Note
 {
-
-
-
 	protected override void Awake()
 	{
 		base.Awake();

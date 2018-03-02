@@ -14,6 +14,9 @@ public class NoteJudgement : MonoBehaviour
 
     public BatterNote currentBatter = null;
 
+    public GameObject explosionEffect;
+    public AudioClip weaponSound;
+
     private GameManager g;
     private TouchManager t;
     private EffectManager e;
@@ -198,6 +201,8 @@ public class NoteJudgement : MonoBehaviour
             }
         }
 
+        MusicManager.instance.PlaySE(weaponSound,0.3f);
+        Instantiate(explosionEffect, _note.transform.position, Quaternion.identity);
         e.ShowJudgeEffect(_judge, _note.lineNum);
     }
 }

@@ -45,8 +45,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
             SetDir(-dir);
-
-        BackgroundScroller.instance.scrollSpeed = dir * moveSpeed;
+        
     }
 
     /// <summary>
