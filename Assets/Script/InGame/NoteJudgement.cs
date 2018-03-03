@@ -7,10 +7,10 @@ public class NoteJudgement : MonoBehaviour
     public const float noteRadius = 1.0f;
     public const float noteTouchMargin = 1.0f;
 
-    public const float judgePerfect = 0.216f;	// -13 ~ 13 frames;
-    public const float judgeNice = 0.366f;	//  14 ~ 22 frames;
-    public const float judgeGood = 0.499f;	//  23 ~ 30 frames;
-    public const float judgePreMiss = 0.616f;   //  31 ~ 37 frames;
+    public const float judgePerfect = 0.108f;	// -13 ~ 13 frames - 0.216;
+    public const float judgeNice = 0.183f;	//  14 ~ 22 frames - 0.366;
+    public const float judgeGood = 0.2495f;	//  23 ~ 30 frames - 0.499;
+    public const float judgePreMiss = 0.308f;   //  31 ~ 37 frames - 0.616;
 
     public BatterNote currentBatter = null;
 
@@ -20,7 +20,7 @@ public class NoteJudgement : MonoBehaviour
     private GameManager g;
     private TouchManager t;
     private EffectManager e;
-    
+
     private void Start()
     {
         g = GameManager.instance;
@@ -28,7 +28,7 @@ public class NoteJudgement : MonoBehaviour
         e = EffectManager.instance;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         CheckInput();
         PlayerAction();
@@ -191,18 +191,23 @@ public class NoteJudgement : MonoBehaviour
                 break;
         }
 
-        if (_note.data.noteType != Note.N_LONG && _judge != Judge.Miss) {
-            if (_note.data.noteType == Note.N_BATTER)
+        if (_judge != Judge.Miss)
+        {
+            MusicManager.instance.PlaySE(weaponSound, 0.3f);
+            Instantiate(explosionEffect, _note.transform.position, Quaternion.identity);
+
+            if (_note.data.noteType != Note.N_LONG)
             {
-                Player.instance.PlayAction(2);
-            }
-            else {
-                Player.instance.PlayAction(_note.lineNum);
+                if (_note.data.noteType == Note.N_BATTER)
+                {
+                    Player.instance.PlayAction(2);
+                }
+                else {
+                    Player.instance.PlayAction(_note.lineNum);
+                }
             }
         }
 
-        MusicManager.instance.PlaySE(weaponSound,0.3f);
-        Instantiate(explosionEffect, _note.transform.position, Quaternion.identity);
         e.ShowJudgeEffect(_judge, _note.lineNum);
     }
 }

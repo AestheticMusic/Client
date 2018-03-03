@@ -10,11 +10,17 @@ public class Player : MonoBehaviour
     Animator ani;
     AudioSource audioPlayer;
 
+    Rigidbody2D ri;
+
     [SerializeField]
     bool isRun = false;
 
+    [SerializeField]
+    bool[] isMaintain = new bool[2] { false, false };
+
     public int dir = 1;
     public float moveSpeed = 0;
+    public float jumpPower = 100f;
 
     private void Awake()
     {
@@ -23,6 +29,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        ri = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         audioPlayer = GetComponent<AudioSource>();
         SetAniSpeed(1f);
@@ -41,11 +48,14 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ri.velocity = new Vector2(0, jumpPower);
             ani.SetTrigger("Jump");
+        }
 
         if (Input.GetKeyDown(KeyCode.Z))
             SetDir(-dir);
-        
+
     }
 
     /// <summary>
@@ -54,23 +64,27 @@ public class Player : MonoBehaviour
     /// <param name="_lineNum">판정 방향</param>
     public void PlayAction(int _lineNum)
     {
-        if (_lineNum == 2)
-        {
-            ani.SetTrigger("LeftArm");
-            ani.SetFloat("LeftNormal", Random.Range(1, 1));
 
-            ani.SetTrigger("RightArm");
-            ani.SetFloat("RightNormal", Random.Range(1, 1));
-        }
-        else if (ConvertDir(_lineNum) == -1)
+        switch (_lineNum)
         {
-            ani.SetTrigger("LeftArm");
-            ani.SetFloat("LeftNormal", Random.Range(1, 1));
-        }
-        else if (ConvertDir(_lineNum) == 1)
-        {
-            ani.SetTrigger("RightArm");
-            ani.SetFloat("RightNormal", Random.Range(1, 1));
+            //왼쪽
+            case 0:
+                ani.SetFloat("LeftNormal", Random.Range(0, 1));
+                ani.SetTrigger("LeftArm");
+                break;
+            //오른쪽
+            case 1:
+                ani.SetFloat("RightNormal", Random.Range(0, 1));
+                ani.SetTrigger("RightArm");
+                break;
+            //연타 공격
+            case 2:
+                ani.SetFloat("LeftNormal", Random.Range(0, 2));
+                ani.SetTrigger("LeftArm");
+
+                ani.SetFloat("RightNormal", Random.Range(0, 2));
+                ani.SetTrigger("RightArm");
+                break;
         }
     }
 
@@ -87,25 +101,39 @@ public class Player : MonoBehaviour
             if (ConvertDir(_lineNum) == -1)
             {
                 ani.SetFloat("LeftMaintain", -1);
+                isMaintain[0] = false;
             }
             else if (ConvertDir(_lineNum) == 1)
             {
                 ani.SetFloat("RightMaintain", -1);
+                isMaintain[1] = false;
             }
             return;
         }
 
         if (ConvertDir(_lineNum) == -1)
         {
-            ani.SetTrigger("LeftArm");
             ani.SetFloat("LeftNormal", -1);
             ani.SetFloat("LeftMaintain", _during);
+
+            if (_during > 0f && !isMaintain[0])
+            {
+                isMaintain[0] = true;
+                ani.SetTrigger("LeftArm");
+            }
+
         }
         else if (ConvertDir(_lineNum) == 1)
         {
-            ani.SetTrigger("RightArm");
             ani.SetFloat("RightNormal", -1);
             ani.SetFloat("RightMaintain", _during);
+
+            if (_during > 0f && !isMaintain[1])
+            {
+                isMaintain[1] = true;
+                ani.SetTrigger("RightArm");
+            }
+
         }
 
     }

@@ -55,12 +55,10 @@ public class GameManager : MonoBehaviour
     }
 
     public Transform[] lines;
-    public Text debugText;
+    public Text debugText, latencyCheckText;
 
     private MusicManager m;
     private GameUIManager u;
-
-
 
     private void Awake()
     {
@@ -98,28 +96,29 @@ public class GameManager : MonoBehaviour
 
     private void DebugLoad()
     {
-
         //noteDataPath = "NoteDatas/DARK FORCE_Hard";
         //AudioClip music = Resources.Load<AudioClip>("Musics/DARK FORCE");
         noteDataPath = "NoteDatas/LastBattle";
-        AudioClip music = Resources.Load<AudioClip>("Musics/LastBattle");
+        AudioClip music = Resources.Load<AudioClip>("Sounds/BGM/LastBattle");
         m.LoadMusic(music);
     }
+
+    int latencyCnt = 0;
 
     private void Update()
     {
         time += Time.deltaTime;
 
-        if (Mathf.Abs(time - m.musicTime) >= 0.075f)
+        if (Mathf.Abs(time - m.musicTime) >= 0.05f)
+        {
+            ++latencyCnt;
+            latencyCheckText.text += latencyCnt + " : " + Mathf.Abs(time - m.musicTime) + "\n";
             time = m.musicTime;
+        }
 
         UpdateTimeLimits();
 
-        debugText.text =
-              "D : " + (time - m.musicTime).ToString("F3") +
-            ", M : " + m.musicTimeS.ToString("F3") +
-            ", S : " + syncedTime.ToString("F3") +
-            ", E : " + Time.deltaTime;
+        debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTimeS, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
     }
 
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)

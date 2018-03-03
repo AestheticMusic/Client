@@ -79,10 +79,10 @@ public class MusicManager : MonoBehaviour
         musicSource.UnPause();
     }
 
-    public void PlaySE(AudioClip _se,float _volume)
+    public void PlaySE(AudioClip _se, float _volume)
     {
         seSourceIndex = (seSourceIndex + 1) % 2;
-    
+
         seSource[seSourceIndex].PlayOneShot(_se, _volume);
     }
 }
