@@ -7,6 +7,23 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
+    /*
+    =상태=
+- 일반
+- 달리기
+- 점프
+
+=Normal=
+일반 공격
+반대 공격
+
+=Long=
+지속 공격
+
+=Batter=
+연타 공격
+    */
+
     Animator ani;
     AudioSource audioPlayer;
 
