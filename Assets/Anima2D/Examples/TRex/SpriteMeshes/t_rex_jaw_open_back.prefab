@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &2145202
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: t_rex_jaw_open_back_0
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 726d2784a87b044f182b7487b3b8ebb8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &4389316
 Mesh:
   m_ObjectHideFlags: 1
@@ -38,6 +12,7 @@ Mesh:
     firstByte: 0
     indexCount: 150
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 46
     localAABB:
@@ -103,6 +78,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 27001b001c0008001d002900080028001c00280027001c00270025001b001a001b0015001b0013001400270026002500250013001b00120013002500250010001100140015001b002600270028002a0029001e0029001d001e001f0029002a001f00070029002c00070020002c0029000700030025002b0012002500110006002b00250006002500260026002800060010002500030029002c00280029002800080019001a00160016001a0015002d000e000f002d000f0003000400020005001800040005001700180005000100040018001900160017001900170005000d002d0022000e002d000d000c000d002200030021002d0022002d002100220023000c00060028002c0009000a000b00230009000b002400000023000900230000000c0023000b000f0010000300
   m_Skin:
   - weight[0]: 1
@@ -581,11 +557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
   m_Name: t_rex_jaw_open_back
   m_EditorClassIdentifier: 
-  m_ApiVersion: 3
+  m_ApiVersion: 4
   m_Sprite: {fileID: 21300006, guid: 726d2784a87b044f182b7487b3b8ebb8, type: 3}
   m_SharedMesh: {fileID: 4389316}
-  m_SharedMaterials:
-  - {fileID: 2145202}
   pivotPoint: {x: 741.9169, y: 576.51807}
   texVertices:
   - vertex: {x: 791.16223, y: 628.32446}
@@ -1198,6 +1172,7 @@ MonoBehaviour:
     name: Jaw 2
     color: {r: 1, g: 0.75, b: 0, a: 1}
     zOrder: 0
+  m_SharedMaterials: []
 --- !u!114 &11408096
 MonoBehaviour:
   m_ObjectHideFlags: 1

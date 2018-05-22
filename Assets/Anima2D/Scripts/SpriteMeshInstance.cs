@@ -301,6 +301,7 @@ namespace Anima2D
 				m_CurrentMesh.name = m_InitialMesh.name;
 				m_CurrentMesh.vertices = m_InitialMesh.vertices;
 				m_CurrentMesh.normals = m_InitialMesh.normals;
+				m_CurrentMesh.tangents = m_InitialMesh.tangents;
 				m_CurrentMesh.boneWeights = m_InitialMesh.boneWeights;
 				m_CurrentMesh.bindposes = m_InitialMesh.bindposes;
 				m_CurrentMesh.uv = m_InitialMesh.uv;
@@ -417,39 +418,18 @@ namespace Anima2D
 			{
 				cachedRenderer.sortingLayerID = sortingLayerID;
 				cachedRenderer.sortingOrder = sortingOrder;
-				
-				if(m_Materials != null && m_Materials.Length > 0)
-				{
-					cachedRenderer.sharedMaterials = m_Materials;
-				}else if(spriteMesh && spriteMesh.sharedMaterials != null)
-				{
-					cachedRenderer.sharedMaterials = spriteMesh.sharedMaterials;
-				}
-				
-				if(materialPropertyBlock != null)
-				{
-					if(spriteTexture)
-					{
-						materialPropertyBlock.SetTexture("_MainTex", spriteTexture);
-					}
+				cachedRenderer.sharedMaterials = m_Materials;
+				cachedRenderer.GetPropertyBlock(materialPropertyBlock);
 
-					materialPropertyBlock.SetColor("_Color",color);
-					
-					cachedRenderer.SetPropertyBlock(materialPropertyBlock);
+				if(spriteTexture)
+				{
+					materialPropertyBlock.SetTexture("_MainTex", spriteTexture);
 				}
+
+				materialPropertyBlock.SetColor("_Color",color);
+				
+				cachedRenderer.SetPropertyBlock(materialPropertyBlock);
 			}
 		}
-
-#if UNITY_EDITOR
-		void OnRenderObject()
-		{
-			//Restore materials to preserve previews
-			if(cachedRenderer && spriteMesh && spriteMesh.sharedMaterials != null)
-			{
-				cachedRenderer.sharedMaterials = spriteMesh.sharedMaterials;
-			}
-		}
-#endif
-
 	}
 }

@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &2195340
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: neck_0
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &4364328
 Mesh:
   m_ObjectHideFlags: 1
@@ -38,6 +12,7 @@ Mesh:
     firstByte: 0
     indexCount: 114
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 33
     localAABB:
@@ -103,6 +78,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 10000e000d0010000f000e001200110010000d0013001000130012001000130019000700170007001800190013000d0019001800070009000800160008000c0015000c00080014001500160008000a000b00140008001d0014000a0014001d00170018001b0017001b0008000300200004001f0003000200010000001e001e00020001001e0000000a001a00180006001c001d0008001b0018001a0008001b001c000a001d001e00050004002000200003001f001e001f000200060005001a001e001d001c001b001a0020001c001b001f0020001a0005001b0020001f001c001f001e00
   m_Skin:
   - weight[0]: 1
@@ -477,17 +453,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
   m_Name: neck
   m_EditorClassIdentifier: 
-  m_ApiVersion: 3
+  m_ApiVersion: 4
   m_Sprite: {fileID: 21300020, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
   m_SharedMesh: {fileID: 4364328}
-  m_SharedMaterials:
-  - {fileID: 2195340}
   pivotPoint: {x: 0, y: 0}
   texVertices: []
   edges: []
   holes: []
   indices: 
   bindPoses: []
+  m_SharedMaterials: []
 --- !u!114 &11406916
 MonoBehaviour:
   m_ObjectHideFlags: 1

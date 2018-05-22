@@ -33,7 +33,7 @@ namespace Anima2D
 				return m_Color;
 			}
 			set {
-				m_Color = color;
+				m_Color = value;
 			}
 		}
 

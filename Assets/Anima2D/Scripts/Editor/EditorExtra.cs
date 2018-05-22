@@ -33,7 +33,23 @@ namespace Anima2D
 
 			foreach(Behaviour behaviour in behaviours)
 			{
-				if(!(behaviour is Ik2D) 
+				SpriteMeshInstance spriteMeshInstance = behaviour as SpriteMeshInstance;
+
+				if(spriteMeshInstance && spriteMeshInstance.spriteMesh && spriteMeshInstance.spriteMesh.sprite)
+				{
+					Material material = spriteMeshInstance.sharedMaterial;
+
+					if(material)
+					{
+						Material materialClone = GameObject.Instantiate(material);
+						materialClone.hideFlags = HideFlags.HideAndDontSave;
+						materialClone.mainTexture = spriteMeshInstance.spriteMesh.sprite.texture;
+
+						spriteMeshInstance.cachedRenderer.sharedMaterial = materialClone;
+					}
+				}
+
+				if(!(behaviour is Ik2D)
 #if UNITY_5_6_OR_NEWER
 					&& !(behaviour is SortingGroup)
 #endif

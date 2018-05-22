@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &2126996
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: hair_3_0
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &4391634
 Mesh:
   m_ObjectHideFlags: 1
@@ -38,6 +12,7 @@ Mesh:
     firstByte: 0
     indexCount: 273
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 65
     localAABB:
@@ -135,6 +110,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 190018000a00090007001900180017003a003500160034002f00340015001600150034001700160035000700090008000b000a003b000b003e001a00170035003a0039003a00350039003b003a003a003b000a003a000a00180036003500340040000c001a00090019000a0034002f0033002600060005002b000600260006002b001300250026000400050004002600040003002500250003002700260025002700140013002e002d002e002b002e0013002b002d0030002e002e0030002f002e002f0014002a002d002b00030002002700280027000200270028002a002a002800290027002a00260024002800020029002d002a002b0026002a002f00150014003900350036001a003f0040000d0040000f003f00100040001b003f003d003e003f001a003400330036003800390036003b003d003e003f003e003d003b003e000b003d003b003c000d000f000e0040000d000c003f001b0010003d001c001b003c001c003d003c00390038001d003c00380038001e001d001d001c003c003700380036000f00400010001e003800370031003300300033002f00300031002c0012003300310032003300320036002c0031003000240001002800290028000000280001000000290022002c002d0029002c001100320031002c0030002d003100200011001100210032001f00320021001f001e0037002300290000002900230022002c0022001200310012002000370032001f003200370036003b0039003c00
   m_Skin:
   - weight[0]: 0.69933325
@@ -765,17 +741,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
   m_Name: hair_3
   m_EditorClassIdentifier: 
-  m_ApiVersion: 3
+  m_ApiVersion: 4
   m_Sprite: {fileID: 21300010, guid: dd105a39e474c4706aba36b8be4febd9, type: 3}
   m_SharedMesh: {fileID: 4391634}
-  m_SharedMaterials:
-  - {fileID: 2126996}
   pivotPoint: {x: 0, y: 0}
   texVertices: []
   edges: []
   holes: []
   indices: 
   bindPoses: []
+  m_SharedMaterials: []
 --- !u!114 &11468006
 MonoBehaviour:
   m_ObjectHideFlags: 1

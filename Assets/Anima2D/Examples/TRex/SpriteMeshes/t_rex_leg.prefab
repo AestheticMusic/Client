@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &2141950
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: t_rex_leg_0
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 726d2784a87b044f182b7487b3b8ebb8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &4378686
 Mesh:
   m_ObjectHideFlags: 1
@@ -38,6 +12,7 @@ Mesh:
     firstByte: 0
     indexCount: 276
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 79
     localAABB:
@@ -119,6 +94,7 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 39003a0043004300380039003b0043003a003c003d0040003d000a0040003c0043003b00090040000a0043003c0040000700400009003f0041003e0043004000440007003e004000410040003e004000410044004a00470048004500470044004700450048003f0004004100420041000400420000000c00040000004200410042004500450042000d0045004400410045000f0010000c000200420045000d000e0002000d0042000f0045000e001000480045004800100011004300370038004300440046004400470046000100480011003700430046004b004a004800360037004600480001004b00490047004a0047004900460035003600460012004b000100490035004600120013004b004a004b004c003400350049004e0049004a0013004c004b003400490033004c001300140049004e0033004c004d004a0015004c0014004d004e004a00150003004c0016004c000300320033004e004c0016004d004e0031003200190031004e004e004d00190017004d00160030003100190018004d00170030001a002f00300019001a004d00180019002e002f001b001b002f001a002d002b002c002d002e001c001c002e001b002d001c001d002d000b002b001d000b002d000b001d002a002a001d001e002a001e00290028000800290029001e001f002800290027001f0020002900290020002700260027002000260020002500200021002500240025002100210022002400220023002400060024002300060023000500
   m_Skin:
   - weight[0]: 1
@@ -2753,11 +2729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
   m_Name: t_rex_leg
   m_EditorClassIdentifier: 
-  m_ApiVersion: 3
+  m_ApiVersion: 4
   m_Sprite: {fileID: 21300002, guid: 726d2784a87b044f182b7487b3b8ebb8, type: 3}
   m_SharedMesh: {fileID: 4378686}
-  m_SharedMaterials:
-  - {fileID: 2141950}
   pivotPoint: {x: 81.314545, y: 609.3412}
   texVertices:
   - vertex: {x: 118.65944, y: 675.29175}
@@ -3770,6 +3744,7 @@ MonoBehaviour:
     name: Fingers R
     color: {r: 0, g: 1, b: 0.25, a: 1}
     zOrder: 4
+  m_SharedMaterials: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

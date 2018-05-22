@@ -142,7 +142,6 @@ namespace Anima2D
 				
 				SerializedObject spriteMeshSO = new SerializedObject(spriteMesh);
 				SerializedProperty sharedMeshProp = spriteMeshSO.FindProperty("m_SharedMesh");
-				SerializedProperty sharedMaterialsProp = spriteMeshSO.FindProperty("m_SharedMaterials");
 				
 				if(!spriteMesh.sharedMesh)
 				{
@@ -157,37 +156,7 @@ namespace Anima2D
 				}
 				
 				spriteMesh.sharedMesh.name = spriteMesh.name;
-				
-				if(spriteMesh.sharedMaterials.Length == 0)
-				{
-					Material material = new Material(Shader.Find("Sprites/Default"));
-					material.mainTexture = SpriteUtility.GetSpriteTexture(spriteMesh.sprite,false);
-					
-					AssetDatabase.AddObjectToAsset(material,spriteMeshPath);
-					
-					spriteMeshSO.Update();
-					sharedMaterialsProp.arraySize = 1;
-					sharedMaterialsProp.GetArrayElementAtIndex(0).objectReferenceValue = material;
-					spriteMeshSO.ApplyModifiedProperties();
-				}
-				
-				for (int i = 0; i < spriteMesh.sharedMaterials.Length; i++)
-				{
-					Material material = spriteMesh.sharedMaterials [i];
-					
-					if(material)
-					{
-						if(spriteMesh.sprite)
-						{
-							material.mainTexture = SpriteUtility.GetSpriteTexture(spriteMesh.sprite,false);
-						}
-						
-						material.name = spriteMesh.name + "_" + i;
-						material.hideFlags = HideFlags.HideInHierarchy;
-						EditorUtility.SetDirty(material);
-					}
-				}
-				
+
 				spriteMeshData.hideFlags = HideFlags.HideInHierarchy;
 				EditorUtility.SetDirty(spriteMeshData);
 				
@@ -297,7 +266,9 @@ namespace Anima2D
 				spriteMesh.sharedMesh.boneWeights = boneWeights.ToArray();
 				spriteMesh.sharedMesh.bindposes = bindposes.ToArray();
 				spriteMesh.sharedMesh.RecalculateBounds();
-
+#if UNITY_5_6_OR_NEWER
+				spriteMesh.sharedMesh.RecalculateTangents();
+#endif
 				RebuildBlendShapes(spriteMesh);
 			}
 		}
@@ -775,7 +746,6 @@ namespace Anima2D
 			
 			if(spriteMesh)
 			{
-				Material[] materials = spriteMesh.sharedMaterials;
 				Mesh sharedMesh = spriteMesh.sharedMesh;
 				
 				if(sharedMesh.bindposes.Length > 0 && spriteMeshInstance.bones.Count > sharedMesh.bindposes.Length)
@@ -825,9 +795,7 @@ namespace Anima2D
 					{
 						skinnedMeshRenderer.rootBone = spriteMeshInstance.bones[0].transform;
 					}
-					
-					skinnedMeshRenderer.sharedMaterials = materials;
-					
+
 					EditorUtility.SetDirty(skinnedMeshRenderer);
 				}else{
 					SkinnedMeshRenderer skinnedMeshRenderer = spriteMeshInstance.cachedSkinnedRenderer;
@@ -864,7 +832,6 @@ namespace Anima2D
 						}else{
 							meshRenderer = spriteMeshInstance.gameObject.AddComponent<MeshRenderer>();
 						}
-						meshRenderer.sharedMaterials = materials;
 						
 						EditorUtility.SetDirty(meshRenderer);
 					}
@@ -1060,23 +1027,7 @@ namespace Anima2D
 				mesh.UploadMeshData(false);
 
 				EditorUtility.SetDirty(mesh);
-
-				HideMaterials(spriteMesh);
 #endif
-			}
-		}
-
-		static void HideMaterials(SpriteMesh spriteMesh)
-		{
-			for (int i = 0; i < spriteMesh.sharedMaterials.Length; i++)
-			{
-				Material material = spriteMesh.sharedMaterials [i];
-
-				if(material)
-				{
-					material.hideFlags = HideFlags.HideInHierarchy;
-					EditorUtility.SetDirty(material);
-				}
 			}
 		}
 

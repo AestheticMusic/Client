@@ -1,4 +1,16 @@
 VERSION LOG
+v1.1.4 2017-10-22
+- Compatible with 2017.2
+- No more original textures in the build when using SpriteAtlases.
+- With this update we lose some inspector previews.
+- "sharedMaterials" property in SpriteMesh is gone.
+- Fixed Bone2D color setter.
+- Added SpriteMask materials to interact with unity's SpriteMask.
+- Fixed BakeAnimations in 2017.1
+- Examples using new SpriteAtlas assets.
+- Creating SpriteMeshInstance from SpriteRenderer will preserve sorting values.
+- Fixed Sprite geometry override on textures using single sprite mode.
+
 v1.1.3 2017-04-01
 - Unity 5.6 compatible.
 - Fix: Texture's userData will only change when applying changes in SpriteMeshEditorWindow.

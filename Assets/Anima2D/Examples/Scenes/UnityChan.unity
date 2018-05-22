@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
-    m_PVRFilteringMode: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &5
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &81745188
 GameObject:
@@ -136,7 +141,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1409403339}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.864273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &81745190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +187,7 @@ Transform:
   - {fileID: 808691361}
   m_Father: {fileID: 245845108}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &110482459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6596021, g: 0.89705884, b: 0.7005429, a: 0.784}
-  m_Length: 0.8596621
+  m_Length: 0.85966283
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 808691361}
   m_AttachedIK: {fileID: 0}
@@ -243,7 +248,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 617417031}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 23.208557}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192055800
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +288,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -298,6 +304,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -369,7 +376,7 @@ Transform:
   - {fileID: 830274759}
   m_Father: {fileID: 1173454591}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 137.30025}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &245845109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6596021, g: 0.89705884, b: 0.7005429, a: 0.784}
-  m_Length: 1.1355255
+  m_Length: 1.1355256
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 110482458}
   m_AttachedIK: {fileID: 0}
@@ -408,13 +415,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257281141}
-  m_LocalRotation: {x: 0, y: 0, z: 0.11464676, w: 0.9934064}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6389092, w: 0.7692822}
   m_LocalPosition: {x: 0.098107286, y: 0.16678175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1487390093}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.167001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &257281143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +467,7 @@ Transform:
   - {fileID: 1830905720}
   m_Father: {fileID: 401706176}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 335.52628}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &276150216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9191176, g: 0.46631703, b: 0.46631703, a: 0.753}
-  m_Length: 0.96322083
+  m_Length: 0.963222
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1830905720}
   m_AttachedIK: {fileID: 0}
@@ -581,6 +588,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -596,6 +604,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -733,6 +742,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -748,6 +758,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -843,6 +854,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -858,6 +870,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -928,7 +941,7 @@ Transform:
   - {fileID: 276150215}
   m_Father: {fileID: 641360306}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 184.4549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &401706177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9191176, g: 0.46631703, b: 0.46631703, a: 0.753}
-  m_Length: 1.3373375
+  m_Length: 1.337338
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 276150215}
   m_AttachedIK: {fileID: 0}
@@ -968,13 +981,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 457077246}
-  m_LocalRotation: {x: 0, y: 0, z: -0.59959114, w: 0.8003065}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7377772, w: 0.6750443}
   m_LocalPosition: {x: 0.5080309, y: -0.38324994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 909037440}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -73.681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &457077248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,6 +1062,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1064,6 +1078,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1144,6 +1159,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1159,6 +1175,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1227,13 +1244,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 488907786}
-  m_LocalRotation: {x: 0, y: 0, z: -0.16575041, w: 0.9861677}
+  m_LocalRotation: {x: 0, y: 0, z: 0.16460332, w: 0.9863599}
   m_LocalPosition: {x: 1.7682309, y: -0.00000047683716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1024937444}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.082}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &488907788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,7 +1382,7 @@ Transform:
   - {fileID: 2006437125}
   m_Father: {fileID: 1420987381}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 283.86362}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &498080694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9117647, g: 0.8664539, b: 0.6771194, a: 0.287}
-  m_Length: 1.740619
+  m_Length: 1.7406193
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 2006437125}
   m_AttachedIK: {fileID: 0}
@@ -1440,6 +1457,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1455,6 +1473,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1522,6 +1541,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1537,6 +1557,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1636,6 +1657,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1651,6 +1673,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1720,7 +1743,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641360306}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 214.18497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &607777740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,7 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6596021, g: 0.89705884, b: 0.7005429, a: 0.784}
-  m_Length: 0.7818844
+  m_Length: 0.78188354
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 158791431}
   m_AttachedIK: {fileID: 0}
@@ -1805,7 +1828,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 641360305}
-  m_LocalRotation: {x: 0, y: 0, z: 0.70676076, w: 0.70745265}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7347941, w: 0.67829025}
   m_LocalPosition: {x: 0.1376518, y: 2.5989678, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1816,7 +1839,7 @@ Transform:
   - {fileID: 607777739}
   m_Father: {fileID: 1029556008}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.94401}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &641360307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,7 +1852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6544118, g: 0.82839763, b: 1, a: 0.768}
-  m_Length: 1.2235703
+  m_Length: 1.2235701
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1173454591}
   m_AttachedIK: {fileID: 0}
@@ -1885,14 +1908,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 673183562}
-  m_LocalRotation: {x: 0, y: 0, z: -0.22335641, w: 0.97473687}
+  m_LocalRotation: {x: 0, y: 0, z: -0.15187795, w: 0.9883993}
   m_LocalPosition: {x: 0.5478816, y: 0.00000008940697, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1694450710}
   m_Father: {fileID: 1269118995}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &673183564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5973724, g: 0.8363687, b: 0.9338235, a: 0.768}
-  m_Length: 0.5198637
+  m_Length: 0.51986384
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1694450710}
   m_AttachedIK: {fileID: 0}
@@ -1967,6 +1990,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1982,6 +2006,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2052,14 +2077,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 714723617}
-  m_LocalRotation: {x: 0, y: 0, z: -0.3486186, w: 0.93726474}
+  m_LocalRotation: {x: 0, y: 0, z: -0.22874823, w: 0.97348565}
   m_LocalPosition: {x: 0.29852998, y: -0.000000009313226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1574128759}
   m_Father: {fileID: 1480816827}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40.806004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &714723619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9485294, g: 0.32082614, b: 0.32082614, a: 0.752}
-  m_Length: 0.41792804
+  m_Length: 0.41792822
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1574128759}
   m_AttachedIK: {fileID: 0}
@@ -2117,8 +2142,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 724790665}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70676076, w: 0.70745265}
-  m_LocalPosition: {x: 0.00033489987, y: 2.5661292, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7347941, w: 0.67829025}
+  m_LocalPosition: {x: 0.1376518, y: 2.5989678, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 671581740}
@@ -2175,6 +2200,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2190,6 +2216,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2259,7 +2286,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 110482458}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -31.008743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &808691362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,7 +2331,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 245845108}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.745941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &830274760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,14 +2371,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 909037439}
-  m_LocalRotation: {x: 0, y: 0, z: 0.58869493, w: 0.80835533}
+  m_LocalRotation: {x: 0, y: 0, z: 0.84668124, w: 0.53210044}
   m_LocalPosition: {x: 0.48581955, y: 0.51171565, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457077247}
   m_Father: {fileID: 1243443575}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 72.129005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909037441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2416,7 +2443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.76440316, g: 0.9485294, b: 0.34174955, a: 0.778}
-  m_Length: 0.75426894
+  m_Length: 0.7542688
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1141462346}
   m_AttachedIK: {fileID: 0}
@@ -2426,14 +2453,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 937933334}
-  m_LocalRotation: {x: 0, y: 0, z: 0.043222357, w: 0.99906546}
+  m_LocalRotation: {x: 0, y: 0, z: 0.12154349, w: 0.99258614}
   m_LocalPosition: {x: 0.72462153, y: 0.00000067055225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1141462346}
   m_Father: {fileID: 1312059605}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.9540005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &937933337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,6 +2584,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2572,6 +2600,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2665,13 +2694,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975183730}
-  m_LocalRotation: {x: 0, y: 0, z: -0.2126688, w: 0.9771244}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09995104, w: 0.9949924}
   m_LocalPosition: {x: 0.49282506, y: -0.00000012665987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1587420280}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.558}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &975183732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,7 +2826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.95294124, g: 0.4431373, b: 0.38431376, a: 0.845}
-  m_Length: 0.14347897
+  m_Length: 0.14347926
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1480816827}
   m_AttachedIK: {fileID: 0}
@@ -2846,6 +2875,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2861,6 +2891,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2942,14 +2973,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1024937443}
-  m_LocalRotation: {x: 0, y: 0, z: -0.094519824, w: 0.99552304}
+  m_LocalRotation: {x: 0, y: 0, z: -0.006398618, w: 0.9999796}
   m_LocalPosition: {x: 1.7649581, y: 0.00000017881393, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488907787}
   m_Father: {fileID: 1538763716}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.847}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1024937445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2962,7 +2993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9632353, g: 0.92630804, b: 0.7720048, a: 0.716}
-  m_Length: 1.7682337
+  m_Length: 1.7682319
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 488907787}
   m_AttachedIK: {fileID: 0}
@@ -3291,14 +3322,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136976458}
-  m_LocalRotation: {x: 0, y: 0, z: 0.26117834, w: 0.9652906}
+  m_LocalRotation: {x: 0, y: 0, z: 0.051101256, w: 0.9986935}
   m_LocalPosition: {x: 0.6013757, y: -0.0000014454126, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1382742427}
   m_Father: {fileID: 1879731469}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.28}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1136976460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3373,6 +3404,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3388,6 +3420,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3458,13 +3491,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141462345}
-  m_LocalRotation: {x: 0, y: 0, z: 0.14713679, w: 0.9891162}
+  m_LocalRotation: {x: 0, y: 0, z: 0.23279047, w: 0.9725269}
   m_LocalPosition: {x: 0.75426877, y: -0.00000035762787, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 937933336}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.922}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1141462347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3523,13 +3556,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166255364}
-  m_LocalRotation: {x: 0, y: 0, z: -0.56814533, w: 0.8229282}
+  m_LocalRotation: {x: 0, y: 0, z: -0.46284783, w: 0.88643783}
   m_LocalPosition: {x: -0.05846966, y: -0.25481978, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1750586124}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -69.242004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1166255366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3629,7 @@ Transform:
   - {fileID: 1409403339}
   m_Father: {fileID: 641360306}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.22154999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1173454592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3609,7 +3642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6544118, g: 0.82839763, b: 1, a: 0.768}
-  m_Length: 1.0274887
+  m_Length: 1.0274884
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1794232977}
   m_AttachedIK: {fileID: 0}
@@ -3639,6 +3672,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3654,6 +3688,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3747,6 +3782,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3762,6 +3798,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3837,7 +3874,7 @@ Transform:
   - {fileID: 1537933522}
   m_Father: {fileID: 1420987381}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 122.53902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1208690065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3869,7 +3906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.639}
-  m_Length: 0.65881395
+  m_Length: 0.65881336
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1537933522}
   m_AttachedIK: {fileID: 0}
@@ -3967,7 +4004,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1837534843}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 50.223206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1251931515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4027,7 +4064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5973724, g: 0.8363687, b: 0.9338235, a: 0.768}
-  m_Length: 0.5478817
+  m_Length: 0.54788125
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 673183563}
   m_AttachedIK: {fileID: 0}
@@ -4073,13 +4110,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1269695013}
-  m_LocalRotation: {x: 0, y: 0, z: -0.120063014, w: 0.9927663}
+  m_LocalRotation: {x: 0, y: 0, z: 0.06870749, w: 0.9976369}
   m_LocalPosition: {x: 0.5755212, y: 0.00000044703484, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1750586124}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.791}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1269695015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4159,7 +4196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.76440316, g: 0.9485294, b: 0.34174955, a: 0.778}
-  m_Length: 0.7246218
+  m_Length: 0.7246209
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 937933336}
   m_AttachedIK: {fileID: 0}
@@ -4221,6 +4258,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4236,6 +4274,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4303,13 +4342,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1359435970}
-  m_LocalRotation: {x: 0, y: 0, z: -0.16432436, w: 0.9864064}
+  m_LocalRotation: {x: 0, y: 0, z: -0.056459058, w: 0.998405}
   m_LocalPosition: {x: 0.6238908, y: 0.0000001937151, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1487390093}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1359435972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,14 +4388,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1382742426}
-  m_LocalRotation: {x: 0, y: 0, z: 0.56722987, w: 0.8235596}
+  m_LocalRotation: {x: 0, y: 0, z: 0.84668124, w: 0.53210044}
   m_LocalPosition: {x: 0.48581955, y: 0.51171565, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 295410370}
   m_Father: {fileID: 1136976459}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 69.115005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1382742428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,7 +4461,7 @@ Transform:
   - {fileID: 81745189}
   m_Father: {fileID: 1173454591}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 214.82552}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1409403340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,7 +4474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6596021, g: 0.89705884, b: 0.7005429, a: 0.784}
-  m_Length: 0.95384806
+  m_Length: 0.9538476
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 617417031}
   m_AttachedIK: {fileID: 0}
@@ -4478,6 +4517,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4493,6 +4533,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4637,7 +4678,7 @@ Transform:
   - {fileID: 2079033697}
   m_Father: {fileID: 1794232977}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 277.5973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1420987382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4697,7 +4738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9485294, g: 0.32082614, b: 0.32082614, a: 0.752}
-  m_Length: 0.29852954
+  m_Length: 0.29852998
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 714723618}
   m_AttachedIK: {fileID: 0}
@@ -4742,7 +4783,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1487390092}
-  m_LocalRotation: {x: 0, y: 0, z: -0.08692395, w: 0.996215}
+  m_LocalRotation: {x: 0, y: 0, z: -0.044064295, w: 0.99902874}
   m_LocalPosition: {x: 0.2604823, y: 0.26255733, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4750,7 +4791,7 @@ Transform:
   - {fileID: 257281142}
   m_Father: {fileID: 1694450710}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.973001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1487390094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,7 +4804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5973724, g: 0.8363687, b: 0.9338235, a: 0.768}
-  m_Length: 0.6238908
+  m_Length: 0.62389106
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1359435971}
   m_AttachedIK: {fileID: 0}
@@ -4829,7 +4870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.639}
-  m_Length: 0.60137695
+  m_Length: 0.6013767
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1243443575}
   m_AttachedIK: {fileID: 0}
@@ -4863,7 +4904,7 @@ Transform:
   - {fileID: 1024937444}
   m_Father: {fileID: 1420987381}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 222.6715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1538763717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4876,7 +4917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9632353, g: 0.92630804, b: 0.7720048, a: 0.716}
-  m_Length: 1.7649593
+  m_Length: 1.7649589
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1024937444}
   m_AttachedIK: {fileID: 0}
@@ -4922,14 +4963,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574128758}
-  m_LocalRotation: {x: 0, y: 0, z: -0.12749247, w: 0.9918396}
+  m_LocalRotation: {x: 0, y: 0, z: -0.01282838, w: 0.99991775}
   m_LocalPosition: {x: 0.41792887, y: -0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1738895996}
   m_Father: {fileID: 714723618}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.649001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1574128760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,7 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9485294, g: 0.32082614, b: 0.32082614, a: 0.752}
-  m_Length: 0.35075694
+  m_Length: 0.3507567
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1738895996}
   m_AttachedIK: {fileID: 0}
@@ -5020,11 +5061,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &1574380192
 Transform:
   m_ObjectHideFlags: 0
@@ -5060,14 +5101,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1587420279}
-  m_LocalRotation: {x: 0, y: 0, z: -0.151437, w: 0.988467}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09079489, w: 0.99586964}
   m_LocalPosition: {x: 0.5972922, y: 0.00049832463, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 975183731}
   m_Father: {fileID: 1694450710}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.42}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1587420281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5080,7 +5121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5973724, g: 0.8363687, b: 0.9338235, a: 0.768}
-  m_Length: 0.49282527
+  m_Length: 0.49282488
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 975183731}
   m_AttachedIK: {fileID: 0}
@@ -5123,6 +5164,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5138,6 +5180,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -5290,6 +5333,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5305,6 +5349,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -5404,7 +5449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5973724, g: 0.8363687, b: 0.9338235, a: 0.768}
-  m_Length: 0.5972915
+  m_Length: 0.59729207
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1587420280}
   m_AttachedIK: {fileID: 0}
@@ -5431,13 +5476,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1738895995}
-  m_LocalRotation: {x: 0, y: 0, z: -0.23740421, w: 0.971411}
+  m_LocalRotation: {x: 0, y: 0, z: 0.022002256, w: 0.99975795}
   m_LocalPosition: {x: 0.35075694, y: 0.00000035797711, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1574128759}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.467001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1738895997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5496,7 +5541,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750586123}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0508365, w: 0.99870706}
+  m_LocalRotation: {x: 0, y: 0, z: 0.14207019, w: 0.9898566}
   m_LocalPosition: {x: 0.65203315, y: -0.0000004582107, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5504,7 +5549,7 @@ Transform:
   - {fileID: 1166255365}
   m_Father: {fileID: 2146141747}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1750586125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5517,7 +5562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.76440316, g: 0.9485294, b: 0.34174955, a: 0.778}
-  m_Length: 0.57552147
+  m_Length: 0.5755208
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1269695014}
   m_AttachedIK: {fileID: 0}
@@ -5562,14 +5607,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1794232976}
-  m_LocalRotation: {x: 0, y: 0, z: -0.03274055, w: 0.9994639}
+  m_LocalRotation: {x: 0, y: 0, z: -0.10255776, w: 0.9947271}
   m_LocalPosition: {x: 1.0274884, y: 0.000000014901161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1420987381}
   m_Father: {fileID: 1173454591}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.752}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1794232978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5582,7 +5627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.6544118, g: 0.82839763, b: 1, a: 0.768}
-  m_Length: 0.56848043
+  m_Length: 0.5684805
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1420987381}
   m_AttachedIK: {fileID: 0}
@@ -5625,6 +5670,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5640,6 +5686,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -5717,7 +5764,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 276150215}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.680367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1830905721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5763,7 +5810,7 @@ Transform:
   - {fileID: 1251931514}
   m_Father: {fileID: 1988714593}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 338.41827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1837534844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5776,7 +5823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9191176, g: 0.46631703, b: 0.46631703, a: 0.753}
-  m_Length: 1.102711
+  m_Length: 1.1027093
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1251931514}
   m_AttachedIK: {fileID: 0}
@@ -5819,6 +5866,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5834,6 +5882,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -5902,14 +5951,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879731468}
-  m_LocalRotation: {x: 0, y: 0, z: 0.47479746, w: 0.8800951}
+  m_LocalRotation: {x: 0, y: 0, z: 0.22429821, w: 0.97452056}
   m_LocalPosition: {x: 0.65881306, y: -0.00000029802322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1136976459}
   m_Father: {fileID: 2079033697}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 56.692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1879731470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5941,7 +5990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.639}
-  m_Length: 0.60137624
+  m_Length: 0.6013764
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1136976459}
   m_AttachedIK: {fileID: 0}
@@ -5988,7 +6037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.76440316, g: 0.9485294, b: 0.34174955, a: 0.778}
-  m_Length: 0.37421712
+  m_Length: 0.37421775
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1312059605}
   m_AttachedIK: {fileID: 0}
@@ -6050,6 +6099,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6065,6 +6115,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -6169,6 +6220,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6184,6 +6236,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -6238,7 +6291,7 @@ Transform:
   - {fileID: 1837534843}
   m_Father: {fileID: 641360306}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 177.97394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1988714594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6251,7 +6304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9191176, g: 0.46631703, b: 0.46631703, a: 0.753}
-  m_Length: 1.6105703
+  m_Length: 1.6105696
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1837534843}
   m_AttachedIK: {fileID: 0}
@@ -6278,14 +6331,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2006437124}
-  m_LocalRotation: {x: 0, y: 0, z: -0.12033247, w: 0.99273366}
+  m_LocalRotation: {x: 0, y: 0, z: 0.03121796, w: 0.9995126}
   m_LocalPosition: {x: 1.7406188, y: 0.00000005401671, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 938744057}
   m_Father: {fileID: 498080693}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.823001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2006437126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,7 +6351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.9117647, g: 0.8664539, b: 0.6771194, a: 0.281}
-  m_Length: 1.4668095
+  m_Length: 1.466811
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 938744057}
   m_AttachedIK: {fileID: 0}
@@ -6360,6 +6413,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6375,6 +6429,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -6450,7 +6505,7 @@ Transform:
   - {fileID: 1879731469}
   m_Father: {fileID: 1420987381}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 94.43733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2079033698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6482,7 +6537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.639}
-  m_Length: 0.6588144
+  m_Length: 0.6588138
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1879731469}
   m_AttachedIK: {fileID: 0}
@@ -6514,7 +6569,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 641360306}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 179.86703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2124748846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6574,7 +6629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.76440316, g: 0.9485294, b: 0.34174955, a: 0.778}
-  m_Length: 0.65203315
+  m_Length: 0.65203375
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1750586124}
   m_AttachedIK: {fileID: 0}
