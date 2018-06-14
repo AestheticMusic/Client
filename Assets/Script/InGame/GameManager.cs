@@ -116,8 +116,8 @@ public class GameManager : MonoBehaviour
         
         if (Mathf.Abs(time - m.musicTime) >= 0.05f)
         {
-            ++latencyCnt;
-            latencyCheckText.text += latencyCnt + " : " + Mathf.Abs(time - m.musicTime) + "\n";
+            //++latencyCnt;
+            //latencyCheckText.text += latencyCnt + " : " + Mathf.Abs(time - m.musicTime) + "\n";
             time = m.musicTime;
         }
 
