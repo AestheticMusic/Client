@@ -194,7 +194,8 @@ public class NoteJudgement : MonoBehaviour
         if (_judge != Judge.Miss)
         {
             MusicManager.instance.PlaySE(weaponSound, 0.3f);
-            Instantiate(explosionEffect, _note.transform.position, Quaternion.identity);
+
+            ObjectPoolManager.Instance.Get(explosionEffect.name).transform.position = _note.transform.position;
 
             if (_note.data.noteType != Note.N_LONG)
             {

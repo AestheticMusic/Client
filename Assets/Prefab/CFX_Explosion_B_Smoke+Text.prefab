@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4977646799359860}
   - component: {fileID: 198194127032045410}
   - component: {fileID: 199200332811060622}
-  - component: {fileID: 114566962382578006}
+  - component: {fileID: 114457258210930650}
   m_Layer: 0
   m_Name: CFX_Explosion_B_Smoke+Text
   m_TagString: FxTemporaire
@@ -233,7 +233,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114566962382578006
+--- !u!114 &114457258210930650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -241,10 +241,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1892078723244562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4ee671ed955494fa20aaaec8842bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
+  maxTime: 2
 --- !u!114 &114970998950348076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +269,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 0.5
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1

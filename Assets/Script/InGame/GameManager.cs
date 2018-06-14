@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public bool auto = false;
 
+    public bool isPlay = false;
+
     [HideInInspector]
     public NoteSpawn noteSpawn;
     [HideInInspector]
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
     {
         time = -3f;
         m.Stop();
+        isPlay = true;
+
         while (time < 0f)
             yield return null;
 
@@ -107,8 +111,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
-
+        if (!isPlay)
+            return;
+        
         if (Mathf.Abs(time - m.musicTime) >= 0.05f)
         {
             ++latencyCnt;
@@ -119,6 +124,11 @@ public class GameManager : MonoBehaviour
         UpdateTimeLimits();
 
         debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTimeS, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        time += Time.deltaTime;
     }
 
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)

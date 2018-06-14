@@ -27,11 +27,18 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public float musicProgress
+    {
+        get
+        {
+            return Mathf.Clamp01(musicSource.time / musicSource.clip.length);
+        }
+    }
+
     private AudioSource musicSource;
     private AudioSource[] seSource = new AudioSource[2];
     private int seSourceIndex = 0;
     private GameManager g;
-
 
 
     private void Awake()
@@ -51,6 +58,12 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (g.isPlay && musicProgress == 1)
+        {
+            g.isPlay = false;
+        }
+
     }
 
     public void LoadMusic(AudioClip _music)
@@ -85,4 +98,6 @@ public class MusicManager : MonoBehaviour
 
         seSource[seSourceIndex].PlayOneShot(_se, _volume);
     }
+
+
 }
