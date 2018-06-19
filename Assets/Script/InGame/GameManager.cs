@@ -148,4 +148,9 @@ public class GameManager : MonoBehaviour
     {
         debugText.text = data;
     }
+
+    public void SetAutoMode(bool _isOn) {
+        auto = _isOn;
+    }
+
 }

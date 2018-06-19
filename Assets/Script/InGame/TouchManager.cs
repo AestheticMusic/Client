@@ -10,8 +10,6 @@ public class TouchManager : MonoBehaviour
 
 	private GameManager g;
 
-
-
 	private void Awake()
 	{
 		instance = this;
