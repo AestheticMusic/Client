@@ -55,12 +55,24 @@ public class LongNote : Note
         endRenderer.sortingOrder = spriteRenderer.sortingOrder;
     }
 
-    protected override void Update()
+    protected override void OnEnable()
+    {
+        if (!firstTouched && timeInterval > 0f)
+            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
+        else if (endTimeInterval >= 0f)
+            notePos.x = 0f;
+        else
+            notePos.x = disappearDistance * -endTimeInterval / disappearDuration;
+        notePos.y = 0f;
+        this.transform.localPosition = notePos;
+    }
+
+    protected override void FixedUpdate()
     {
         UpdateTimeInterval();
         UpdateTouch();
         UpdateLong();
-        base.Update();
+        base.FixedUpdate();
 
         spriteRenderer.color = noteColor;
         bodyRenderer.color = bodyColor;
@@ -78,7 +90,7 @@ public class LongNote : Note
                 touched = true;
             else
                 g.noteJudgement.HitNote(this);
-            
+
         }
     }
 

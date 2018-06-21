@@ -38,7 +38,7 @@ public class BatterNote : Note
         animator.Play("Appear", -1, 0f);
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
         timeInterval = time - g.syncedTime;
         endTimeInterval = endTime - g.syncedTime;

@@ -19,13 +19,6 @@ public class MusicManager : MonoBehaviour
             musicSource.time = value;
         }
     }
-    public float musicTimeS
-    {
-        get
-        {
-            return (float)musicSource.timeSamples / musicSource.clip.frequency;
-        }
-    }
 
     public float musicProgress
     {

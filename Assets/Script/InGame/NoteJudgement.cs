@@ -203,12 +203,14 @@ public class NoteJudgement : MonoBehaviour
                 {
                     Player.instance.PlayAction(2);
                 }
-                else {
+                else
+                {
                     Player.instance.PlayAction(_note.lineNum);
                 }
             }
         }
 
+        CameraManager.instance.shake.ShakeCam();
         e.ShowJudgeEffect(_judge, _note.lineNum);
     }
 }

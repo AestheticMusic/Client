@@ -8,20 +8,39 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     /*
-    =상태=
-- 일반
-- 달리기
-- 점프
+    공격 모션 설정  
+    
+    =Normal=
+    일반 공격
+    반대 공격
+    
+    =Long=
+    지속 공격
+    
+    =Batter=
+    연타 공격
 
-=Normal=
-일반 공격
-반대 공격
+    공격 애니메이션 분류
 
-=Long=
-지속 공격
+     공격 상태
+       > 공격 방향
+         > 공격 방식
 
-=Batter=
-연타 공격
+
+    공격 상태
+      - 스탠딩
+      - 에어리어 (점프)
+
+    공격 방향
+     - 단방향
+     - 양방향
+
+    공격 방식
+     - 단타
+     - 연타
+     - 지속
+     - 패링(반사)
+       
     */
 
     Animator ani;

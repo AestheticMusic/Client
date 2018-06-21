@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NoteData
 {
+    public static float TimeLerp = 25f;
+
 	public float time = 0f;
 	public int lineNum = 0;
 

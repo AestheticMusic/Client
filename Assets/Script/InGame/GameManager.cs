@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
 
         DebugLoad();
         StartCoroutine(StartDelay());
+
     }
 
     private IEnumerator StartDelay()
@@ -88,10 +89,9 @@ public class GameManager : MonoBehaviour
         time = -3f;
         m.Stop();
         isPlay = true;
-
+//        StartCoroutine(TimeUpdate());
         while (time < 0f)
             yield return null;
-
         m.Play();
         yield return null;
         time = 0f;
@@ -109,27 +109,59 @@ public class GameManager : MonoBehaviour
 
     int latencyCnt = 0;
 
+    private void FixedUpdate()
+    {
+        if (!isPlay)
+            return;
+
+        time += m.musicTime - oldTime;
+
+        //print((m.musicTime - oldTime) + " | " + Time.deltaTime + " | " + Time.fixedDeltaTime);
+
+        oldTime = m.musicTime;
+
+        if (Mathf.Abs(time - m.musicTime) >= 0.05f)
+        {
+            ++latencyCnt;
+            latencyCheckText.text += latencyCnt + " : " + (time - m.musicTime) + "\n";
+            time = m.musicTime;
+        }
+    }
+
     private void Update()
     {
         if (!isPlay)
             return;
-        
-        if (Mathf.Abs(time - m.musicTime) >= 0.05f)
-        {
-            //++latencyCnt;
-            //latencyCheckText.text += latencyCnt + " : " + Mathf.Abs(time - m.musicTime) + "\n";
-            time = m.musicTime;
-        }
+
 
         UpdateTimeLimits();
 
-        debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTimeS, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
+        debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTime, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
     }
 
-    private void FixedUpdate()
-    {
-        time += Time.deltaTime;
-    }
+
+    float oldTime = 0;
+
+   // IEnumerator TimeUpdate()
+   // {
+   //     while (isPlay)
+   //     {
+   //         time += m.musicTime - oldTime;
+   //
+   //         //print((m.musicTime - oldTime) + " | " + Time.deltaTime + " | " + Time.fixedDeltaTime);
+   //
+   //         oldTime = m.musicTime;
+   //
+   //         if (Mathf.Abs(time - m.musicTime) >= 0.05f)
+   //         {
+   //             ++latencyCnt;
+   //             latencyCheckText.text += latencyCnt + " : " + (time - m.musicTime) + "\n";
+   //             time = m.musicTime;
+   //         }
+   //         yield return new WaitForSeconds(Time.fixedDeltaTime  * 0.5f);
+   //     }
+   //
+   // }
 
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)
     {
@@ -149,7 +181,8 @@ public class GameManager : MonoBehaviour
         debugText.text = data;
     }
 
-    public void SetAutoMode(bool _isOn) {
+    public void SetAutoMode(bool _isOn)
+    {
         auto = _isOn;
     }
 

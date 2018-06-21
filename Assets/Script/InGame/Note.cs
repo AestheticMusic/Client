@@ -40,14 +40,29 @@ public class Note : MonoBehaviour
         this.transform.localScale = new Vector3(4f, 4f, 4f);
     }
 
-    protected virtual void Update()
+    protected virtual void OnEnable()
+    {
+        timeInterval = time - g.syncedTime;
+        if (timeInterval > 0f)
+            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
+        else if (timeInterval > -NoteJudgement.judgePerfect)
+            notePos.x = 0f;
+        else
+            notePos.x = disappearDistance * (-timeInterval - NoteJudgement.judgePerfect) / disappearDuration;
+        notePos.z = timeInterval;
+
+        this.transform.localPosition = notePos;
+    }
+
+    protected virtual void FixedUpdate()
     {
         UpdatePosition();
         UpdateAuto();
         UpdateDisappear();
     }
 
-    public virtual void UpdateAuto() {
+    public virtual void UpdateAuto()
+    {
         if (!g.auto)
             return;
 
@@ -67,9 +82,10 @@ public class Note : MonoBehaviour
         else
             notePos.x = disappearDistance * (-timeInterval - NoteJudgement.judgePerfect) / disappearDuration;
         notePos.z = timeInterval;
-        
+
         this.transform.localPosition = notePos;
     }
+
 
     protected virtual void UpdateDisappear()
     {

@@ -19,8 +19,8 @@ public class DragNote : Note
 		spriteRenderer.flipX = (drag < 0) ? true : false;
 	}
 
-	protected override void Update()
+	protected override void FixedUpdate()
 	{
-		base.Update();
+		base.FixedUpdate();
 	}
 }

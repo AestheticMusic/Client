@@ -21,6 +21,8 @@ public class CameraManager : MonoBehaviour
 
     private GameManager g;
 
+    public CameraShake shake;
+
     private void Awake()
     {
         instance = this;
@@ -29,12 +31,12 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         g = GameManager.instance;
-
+        shake = GetComponent<CameraShake>();
         cam = Camera.main;
         screenRatio = Screen.width / Screen.height;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         GetCameraInfo(g.syncedTime, camPos, camZoom, camRot.z);
 
@@ -49,14 +51,15 @@ public class CameraManager : MonoBehaviour
         cam.orthographicSize = camZoom;
     }
 
-    public void AddNoteCameraData(NoteCameraData _data) {
+    public void AddNoteCameraData(NoteCameraData _data)
+    {
         datas.Add(_data);
     }
 
     public void GetCameraInfo(float _time, Vector3 _pos, float _zoom, float _rot)
     {
         List<NoteCameraData> data = GetCameraData(_time);
-        
+
         if (data.Count > 0)
         {
             for (int i = 0; i < data.Count; ++i)

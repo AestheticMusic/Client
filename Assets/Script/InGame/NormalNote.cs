@@ -14,8 +14,8 @@ public class NormalNote : Note
 		base.Start();
 	}
 
-	protected override void Update()
+	protected override void FixedUpdate()
 	{
-		base.Update();
+		base.FixedUpdate();
 	}
 }
