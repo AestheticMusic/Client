@@ -27,7 +27,7 @@ public class MusicManager : MonoBehaviour
             return Mathf.Clamp01(musicSource.time / musicSource.clip.length);
         }
     }
-
+    
     private AudioSource musicSource;
     private AudioSource[] seSource = new AudioSource[2];
     private int seSourceIndex = 0;

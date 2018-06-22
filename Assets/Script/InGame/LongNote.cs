@@ -175,7 +175,7 @@ public class LongNote : Note
         else
             notePos.x = disappearDistance * -endTimeInterval / disappearDuration;
         notePos.y = 0f;
-        this.transform.localPosition = notePos;
+        this.transform.localPosition = Vector3.LerpUnclamped(transform.localPosition, notePos, Time.deltaTime * lerpTime * g.speed);
     }
 
     protected override void UpdateDisappear()

@@ -183,6 +183,7 @@ public class NoteJudgement : MonoBehaviour
             case Judge.Perfect:
             case Judge.Nice:
             case Judge.Good:
+                CameraManager.instance.shake.ShakeCam();
                 ++g.combo;
                 break;
             case Judge.PreMiss:
@@ -210,7 +211,6 @@ public class NoteJudgement : MonoBehaviour
             }
         }
 
-        CameraManager.instance.shake.ShakeCam();
         e.ShowJudgeEffect(_judge, _note.lineNum);
     }
 }

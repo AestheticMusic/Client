@@ -38,8 +38,10 @@ public class GameManager : MonoBehaviour
     public int combo = 0;
     [HideInInspector]
     public string noteDataPath;
+
     [HideInInspector]
     public float time = -3f;
+    float oldTime = 0;
 
     public float syncedTime
     {
@@ -89,7 +91,6 @@ public class GameManager : MonoBehaviour
         time = -3f;
         m.Stop();
         isPlay = true;
-//        StartCoroutine(TimeUpdate());
         while (time < 0f)
             yield return null;
         m.Play();
@@ -140,28 +141,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    float oldTime = 0;
-
-   // IEnumerator TimeUpdate()
-   // {
-   //     while (isPlay)
-   //     {
-   //         time += m.musicTime - oldTime;
-   //
-   //         //print((m.musicTime - oldTime) + " | " + Time.deltaTime + " | " + Time.fixedDeltaTime);
-   //
-   //         oldTime = m.musicTime;
-   //
-   //         if (Mathf.Abs(time - m.musicTime) >= 0.05f)
-   //         {
-   //             ++latencyCnt;
-   //             latencyCheckText.text += latencyCnt + " : " + (time - m.musicTime) + "\n";
-   //             time = m.musicTime;
-   //         }
-   //         yield return new WaitForSeconds(Time.fixedDeltaTime  * 0.5f);
-   //     }
-   //
-   // }
+    
 
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)
     {
@@ -186,4 +166,8 @@ public class GameManager : MonoBehaviour
         auto = _isOn;
     }
 
+
+    public void SetSpeed(float _amoount) {
+        speed = _amoount;
+    }
 }

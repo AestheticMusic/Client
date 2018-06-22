@@ -8,6 +8,7 @@ public class GameUIManager : MonoBehaviour
 	public static GameUIManager instance;
 
 	public Text comboText;
+    public Text speedText;
 
 	private GameManager g;
 	private EffectManager e;
@@ -28,5 +29,6 @@ public class GameUIManager : MonoBehaviour
 	private void Update()
 	{
 		comboText.text = g.combo.ToString();
+        speedText.text = g.speed.ToString();
     }
 }

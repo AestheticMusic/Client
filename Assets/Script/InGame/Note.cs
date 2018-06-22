@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
+    public const float lerpTime = 5.5f;
+
     public const int N_NORMAL = 0;
     public const int N_LONG = 1;
     public const int N_DRAG = 2;
@@ -40,8 +42,7 @@ public class Note : MonoBehaviour
         this.transform.localScale = new Vector3(4f, 4f, 4f);
     }
 
-    protected virtual void OnEnable()
-    {
+    protected virtual void OnEnable() {
         timeInterval = time - g.syncedTime;
         if (timeInterval > 0f)
             notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
@@ -83,7 +84,7 @@ public class Note : MonoBehaviour
             notePos.x = disappearDistance * (-timeInterval - NoteJudgement.judgePerfect) / disappearDuration;
         notePos.z = timeInterval;
 
-        this.transform.localPosition = notePos;
+        this.transform.localPosition = Vector3.LerpUnclamped(transform.localPosition, notePos, Time.deltaTime * lerpTime * g.speed);
     }
 
 

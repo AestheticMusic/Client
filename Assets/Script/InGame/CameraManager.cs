@@ -46,9 +46,11 @@ public class CameraManager : MonoBehaviour
         camPos.y = Mathf.Clamp(camPos.y, limitRB.position.y + camYSize, limitLT.position.y - camYSize);
         camZoom = Mathf.Clamp(baseCamZoom + camZoom, baseCamZoom + 1f, baseCamZoom + 5.5f);
 
-        cam.transform.position = baseCamPos + camPos;
-        cam.transform.eulerAngles = camRot;
-        cam.orthographicSize = camZoom;
+
+        cam.transform.localPosition = Vector3.LerpUnclamped(cam.transform.position, baseCamPos + camPos, Time.deltaTime * Note.lerpTime * g.speed);
+        cam.transform.localRotation = Quaternion.LerpUnclamped(cam.transform.rotation, Quaternion.Euler(camRot), Time.deltaTime * Note.lerpTime * g.speed);
+        cam.orthographicSize = Mathf.LerpUnclamped(cam.orthographicSize, camZoom, Time.deltaTime * Note.lerpTime * g.speed);
+
     }
 
     public void AddNoteCameraData(NoteCameraData _data)
