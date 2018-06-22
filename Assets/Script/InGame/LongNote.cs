@@ -84,7 +84,7 @@ public class LongNote : Note
         if (!g.auto)
             return;
 
-        if ((Mathf.Abs(timeInterval) <= 0.03f || (firstTouched && endTimeInterval > 0f)))
+        if ((Mathf.Abs(timeInterval) <= autoTimeInterval || (firstTouched && endTimeInterval > 0f)))
         {
             if (firstTouched)
                 touched = true;
@@ -169,7 +169,7 @@ public class LongNote : Note
     public override void UpdatePosition()
     {
         if (!firstTouched && timeInterval > 0f)
-            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
+            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine + (positionMargin + (g.speed - 1) * 0.1f);
         else if (endTimeInterval >= 0f)
             notePos.x = 0f;
         else

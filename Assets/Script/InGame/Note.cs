@@ -5,6 +5,8 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public const float lerpTime = 5.5f;
+    public const float positionMargin = 0.8f;
+    public const float autoTimeInterval = 0.02f;
 
     public const int N_NORMAL = 0;
     public const int N_LONG = 1;
@@ -42,7 +44,8 @@ public class Note : MonoBehaviour
         this.transform.localScale = new Vector3(4f, 4f, 4f);
     }
 
-    protected virtual void OnEnable() {
+    protected virtual void OnEnable()
+    {
         timeInterval = time - g.syncedTime;
         if (timeInterval > 0f)
             notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
@@ -67,7 +70,7 @@ public class Note : MonoBehaviour
         if (!g.auto)
             return;
 
-        if (Mathf.Abs(timeInterval) <= 0.03f)
+        if (Mathf.Abs(timeInterval) <= autoTimeInterval)
         {
             g.noteJudgement.HitNote(this);
         }
@@ -77,7 +80,7 @@ public class Note : MonoBehaviour
     {
         timeInterval = time - g.syncedTime;
         if (timeInterval > 0f)
-            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine;
+            notePos.x = timeInterval * (g.bpm / 120.0f) * g.speed * -g.oneBeatToLine + (positionMargin + (g.speed - 1) * 0.1f);
         else if (timeInterval > -NoteJudgement.judgePerfect)
             notePos.x = 0f;
         else

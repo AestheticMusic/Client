@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     public Text debugText, latencyCheckText;
 
     private MusicManager m;
-    private GameUIManager u;
+    private GameUIManager ui;
 
     private void Awake()
     {
@@ -79,11 +79,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         m = MusicManager.instance;
-        u = GameUIManager.instance;
+        ui = GameUIManager.instance;
 
         DebugLoad();
         StartCoroutine(StartDelay());
-
     }
 
     private IEnumerator StartDelay()
@@ -116,15 +115,12 @@ public class GameManager : MonoBehaviour
             return;
 
         time += m.musicTime - oldTime;
-
-        //print((m.musicTime - oldTime) + " | " + Time.deltaTime + " | " + Time.fixedDeltaTime);
-
         oldTime = m.musicTime;
 
         if (Mathf.Abs(time - m.musicTime) >= 0.05f)
         {
-            ++latencyCnt;
-            latencyCheckText.text += latencyCnt + " : " + (time - m.musicTime) + "\n";
+            //++latencyCnt;
+            //latencyCheckText.text += latencyCnt + " : " + (time - m.musicTime) + "\n";
             time = m.musicTime;
         }
     }
@@ -133,16 +129,12 @@ public class GameManager : MonoBehaviour
     {
         if (!isPlay)
             return;
-
-
+        
         UpdateTimeLimits();
 
         debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTime, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
     }
-
-
     
-
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)
     {
         Vector3 world = Camera.main.ScreenToWorldPoint(_scrn);

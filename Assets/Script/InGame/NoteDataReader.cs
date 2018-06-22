@@ -12,8 +12,6 @@ public class NoteDataReader
 
 	public void ReadData(string _ntd)
 	{
-		GameManager g = GameManager.instance;
-
 		string[] lines = _ntd.Split('\n');
 		datas = new List<NoteData>();
 		NoteData data = null;

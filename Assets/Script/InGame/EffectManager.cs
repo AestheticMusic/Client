@@ -8,18 +8,10 @@ public class EffectManager : MonoBehaviour
 	
 	public JudgeEffect[] judgePool;
 
-	private GameManager g;
-
-
 
 	private void Awake()
 	{
 		instance = this;
-	}
-
-	private void Start()
-	{
-		g = GameManager.instance;
 	}
 
 	private void Update()
