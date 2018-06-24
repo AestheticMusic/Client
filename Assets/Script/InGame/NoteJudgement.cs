@@ -47,8 +47,10 @@ public class NoteJudgement : MonoBehaviour
             if (n.data.noteType == Note.N_LONG)
                 lineProgress[n.lineNum] = ((LongNote)n).GetLongProgress();
         }
-        Player.instance.PlayAction(0, lineProgress[0]);
-        Player.instance.PlayAction(1, lineProgress[1]);
+        if (lineProgress[0] > 0f)
+            Player.instance.PlayAction(0, 2, lineProgress[0]);
+        if (lineProgress[1] > 0f)
+            Player.instance.PlayAction(1, 2, lineProgress[1]);
     }
 
     private void CheckInput()
@@ -202,11 +204,15 @@ public class NoteJudgement : MonoBehaviour
             {
                 if (_note.data.noteType == Note.N_BATTER)
                 {
-                    Player.instance.PlayAction(2);
+                    Player.instance.PlayAction(2, 1);
+                }
+                else if (_note.data.noteType == Note.N_DRAG)
+                {
+                    Player.instance.PlayAction(_note.lineNum, 3);
                 }
                 else
                 {
-                    Player.instance.PlayAction(_note.lineNum);
+                    Player.instance.PlayAction(_note.lineNum, 0);
                 }
             }
         }

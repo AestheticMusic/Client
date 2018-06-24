@@ -22,24 +22,27 @@ public class Player : MonoBehaviour
 
     공격 애니메이션 분류
 
-     공격 상태
-       > 공격 방향
-         > 공격 방식
-
-
     공격 상태
-      - 스탠딩
-      - 에어리어 (점프)
+      > 공격 방향
+        > 공격 방식
+         
+    공격 상태 >> State
+      - 0 : 스탠딩
+      - 1 : 달리기
+      - 2 : 에어리어 (점프 포함)
 
-    공격 방향
-     - 단방향
-     - 양방향
+    공격 방향 > Dir
+     - 0 : 단방향
+     - 1 : 양방향
 
-    공격 방식
-     - 단타
-     - 연타
-     - 지속
-     - 패링(반사)
+    공격 방식 >> Category
+     - 0 : 단타 (Normal)
+     - 1 : 연타 (Batter)
+     - 2 : 지속 (Long)
+     - 3 : 패링 (Drag)
+
+    공격 방식 종류 >> Kind
+    - 1/n (n은 애니메이션 갯수)
        
     */
 
@@ -52,8 +55,16 @@ public class Player : MonoBehaviour
     bool isRun = false;
 
     [SerializeField]
-    bool[] isMaintain = new bool[2] { false, false };
+    bool[] isAttackDir = new bool[2] { false, false };
 
+
+    [Header("0:Normal, 1:Batter, 2:Long, 3:Drag")]
+    public List<AnimationAmount> standAniAmountList;
+    public List<AnimationAmount> runAniAmountList;
+    public List<AnimationAmount> airAniAmountList;
+
+
+    public int state = 0;
     public int dir = 1;
     public float moveSpeed = 0;
     public float jumpPower = 100f;
@@ -76,21 +87,23 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             isRun = !isRun;
-            ani.SetBool("Run", isRun);
+            state = 1;
             if (isRun)
                 moveSpeed = 0.3f;
             else
                 moveSpeed = 0f;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             ri.velocity = new Vector2(0, jumpPower);
-            ani.SetTrigger("Jump");
+            state = 2;
+        }
+        else {
+            state = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-            SetDir(-dir);
+        ani.SetInteger("State", state);
+
 
     }
 
@@ -98,80 +111,51 @@ public class Player : MonoBehaviour
     /// 일반 타격 액션을 취합니다.
     /// </summary>
     /// <param name="_lineNum">판정 방향</param>
-    public void PlayAction(int _lineNum)
+    public void PlayAction(int _lineNum, int _category, float _during = 0f)
     {
 
         switch (_lineNum)
         {
             //왼쪽
             case 0:
-                ani.SetFloat("LeftNormal", Random.Range(0, 1));
-                ani.SetTrigger("LeftArm");
+                dir = -1;
+                SetDir(dir);
+                isAttackDir[0] = true;
                 break;
             //오른쪽
             case 1:
-                ani.SetFloat("RightNormal", Random.Range(0, 1));
-                ani.SetTrigger("RightArm");
+                dir = 1;
+                SetDir(dir);
+                isAttackDir[1] = true;
                 break;
-            //연타 공격
+            //연타 노트
             case 2:
-                ani.SetFloat("LeftNormal", Random.Range(0, 2));
-                ani.SetTrigger("LeftArm");
-
-                ani.SetFloat("RightNormal", Random.Range(0, 2));
-                ani.SetTrigger("RightArm");
+                isAttackDir[0] = isAttackDir[1] = true;
                 break;
         }
-    }
 
-    /// <summary>
-    /// 지속 타격 액션을 취합니다.
-    /// </summary>
-    /// <param name="_lineNum">판정 방향</param>
-    /// <param name="_during">진행 상황</param>
-    public void PlayAction(int _lineNum, float _during)
-    {
-
-        if (Mathf.Abs(_during) == 1)
+        //좌우 동시
+        if (isAttackDir[0] && isAttackDir[1])
         {
-            if (ConvertDir(_lineNum) == -1)
-            {
-                ani.SetFloat("LeftMaintain", -1);
-                isMaintain[0] = false;
-            }
-            else if (ConvertDir(_lineNum) == 1)
-            {
-                ani.SetFloat("RightMaintain", -1);
-                isMaintain[1] = false;
-            }
-            return;
+            ani.SetInteger("Dir", 1);
+            ani.SetInteger("Category", _category);
+            AnimationAmount amount = GetAnimationAmount(state, _category);
+            ani.SetFloat("Kind", (1 / amount.multiple) * Random.Range(0, amount.multiple + 1));
+            ani.SetTrigger("Action");
+        }
+        else if (isAttackDir[0] || isAttackDir[1])
+        {
+            ani.SetInteger("Dir", 0);
+            ani.SetInteger("Category", _category);
+            AnimationAmount amount = GetAnimationAmount(state, _category);
+            ani.SetFloat("Kind", (1 / amount.single) * Random.Range(0, amount.single + 1));
+            ani.SetTrigger("Action");
+        }
+        else {
+            ani.SetInteger("Dir", -1);
         }
 
-        if (ConvertDir(_lineNum) == -1)
-        {
-            ani.SetFloat("LeftNormal", -1);
-            ani.SetFloat("LeftMaintain", _during);
-
-            if (_during > 0f && !isMaintain[0])
-            {
-                isMaintain[0] = true;
-                ani.SetTrigger("LeftArm");
-            }
-
-        }
-        else if (ConvertDir(_lineNum) == 1)
-        {
-            ani.SetFloat("RightNormal", -1);
-            ani.SetFloat("RightMaintain", _during);
-
-            if (_during > 0f && !isMaintain[1])
-            {
-                isMaintain[1] = true;
-                ani.SetTrigger("RightArm");
-            }
-
-        }
-
+        print("action");
     }
 
     /// <summary>
@@ -187,6 +171,22 @@ public class Player : MonoBehaviour
         else
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
+    }
+
+    public AnimationAmount GetAnimationAmount(int _state, int _category)
+    {
+
+        switch (_state)
+        {
+            case 0:
+                return standAniAmountList.Find(item => item.category == _category);
+            case 1:
+                return runAniAmountList.Find(item => item.category == _category);
+            case 2:
+                return airAniAmountList.Find(item => item.category == _category);
+        }
+
+        return null;
     }
 
     private int ConvertDir(int _lineNum)
@@ -207,5 +207,15 @@ public class Player : MonoBehaviour
     {
         ani.speed = _speed;
     }
+
+}
+
+[System.Serializable]
+public class AnimationAmount
+{
+    public int category;
+
+    public int single;
+    public int multiple;
 
 }

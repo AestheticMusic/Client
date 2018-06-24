@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
 
     public Transform[] lines;
-    public Text debugText, latencyCheckText;
+    //public Text debugText, latencyCheckText;
 
     private MusicManager m;
     private GameUIManager ui;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         
         UpdateTimeLimits();
 
-        debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTime, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
+        //debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTime, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
     }
     
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)
@@ -148,10 +148,10 @@ public class GameManager : MonoBehaviour
         noteMaxTime = Mathf.Clamp(syncedTime + maxBeatInLine * (120f / bpm) / speed, noteMinTime, length);
     }
 
-    public void SetDebugText(string data)
-    {
-        debugText.text = data;
-    }
+    //public void SetDebugText(string data)
+    //{
+    //    debugText.text = data;
+    //}
 
     public void SetAutoMode(bool _isOn)
     {
