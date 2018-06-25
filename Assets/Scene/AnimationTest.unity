@@ -235,15 +235,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4602443661544226, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.9261719
+      value: -0.8512715
       objectReference: {fileID: 0}
     - target: {fileID: 4602443661544226, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.37710157
+      value: 0.52472544
       objectReference: {fileID: 0}
     - target: {fileID: 4602443661544226, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1215.692
+      value: 1683.3
       objectReference: {fileID: 0}
     - target: {fileID: 4862930601852264, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalRotation.z
@@ -279,23 +279,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4857247852184238, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.09
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4857247852184238, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4029263235172178, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.314922
       objectReference: {fileID: 0}
     - target: {fileID: 4029263235172178, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.94911754
       objectReference: {fileID: 0}
     - target: {fileID: 4029263235172178, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 36.712
       objectReference: {fileID: 0}
     - target: {fileID: 4602443661544226, guid: 009e6fbfc08585e4d9c364a713de5f03, type: 2}
       propertyPath: m_LocalScale.x

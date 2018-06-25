@@ -176,7 +176,6 @@ public class Player : MonoBehaviour
         {
             ani.SetInteger("Dir", -1);
         }
-        print("action");
     }
 
     /// <summary>
