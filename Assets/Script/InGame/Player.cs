@@ -57,6 +57,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     bool[] isAttackDir = new bool[2] { false, false };
 
+    [SerializeField]
+    float[] attackDirResetTime = new float[2] { 0.5f, 0.5f };
+
+    [SerializeField]
+    float[] currentAttackDirResetTime = new float[2] { 0.5f, 0.5f };
 
     [Header("0:Normal, 1:Batter, 2:Long, 3:Drag")]
     public List<AnimationAmount> standAniAmountList;
@@ -98,12 +103,27 @@ public class Player : MonoBehaviour
             ri.velocity = new Vector2(0, jumpPower);
             state = 2;
         }
-        else {
+        else
+        {
             state = 0;
         }
 
         ani.SetInteger("State", state);
 
+        if (isAttackDir[0] && currentAttackDirResetTime[0] > 0f)
+        {
+            currentAttackDirResetTime[0] -= Time.deltaTime;
+            if (currentAttackDirResetTime[0] > 0f)
+                isAttackDir[0] = false;
+        }
+
+
+        if (isAttackDir[1] && currentAttackDirResetTime[1] > 0f)
+        {
+            currentAttackDirResetTime[1] -= Time.deltaTime;
+            if (currentAttackDirResetTime[1] > 0f)
+                isAttackDir[1] = false;
+        }
 
     }
 
@@ -113,7 +133,6 @@ public class Player : MonoBehaviour
     /// <param name="_lineNum">판정 방향</param>
     public void PlayAction(int _lineNum, int _category, float _during = 0f)
     {
-
         switch (_lineNum)
         {
             //왼쪽
@@ -121,12 +140,14 @@ public class Player : MonoBehaviour
                 dir = -1;
                 SetDir(dir);
                 isAttackDir[0] = true;
+                currentAttackDirResetTime[0] = attackDirResetTime[0];
                 break;
             //오른쪽
             case 1:
                 dir = 1;
                 SetDir(dir);
                 isAttackDir[1] = true;
+                currentAttackDirResetTime[1] = attackDirResetTime[1];
                 break;
             //연타 노트
             case 2:
@@ -151,10 +172,10 @@ public class Player : MonoBehaviour
             ani.SetFloat("Kind", (1 / amount.single) * Random.Range(0, amount.single + 1));
             ani.SetTrigger("Action");
         }
-        else {
+        else
+        {
             ani.SetInteger("Dir", -1);
         }
-
         print("action");
     }
 
