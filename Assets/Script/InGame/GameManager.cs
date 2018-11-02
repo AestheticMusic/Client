@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public const float lineLength = 24.0f; // 12.0f
     public const float lineHeight = 6.5f;
 
+    public string musicName;
+
     // [HideInInspector]
     public float bpm = 120.0f;
     // [HideInInspector]
@@ -102,8 +104,8 @@ public class GameManager : MonoBehaviour
     {
         //noteDataPath = "NoteDatas/DARK FORCE_Hard";
         //AudioClip music = Resources.Load<AudioClip>("Musics/DARK FORCE");
-        noteDataPath = "NoteDatas/LastBattle";
-        AudioClip music = Resources.Load<AudioClip>("Sounds/BGM/LastBattle");
+        noteDataPath = "NoteDatas/" + musicName;
+        AudioClip music = Resources.Load<AudioClip>("Sounds/BGM/" + musicName);
         m.LoadMusic(music);
     }
 
@@ -129,12 +131,12 @@ public class GameManager : MonoBehaviour
     {
         if (!isPlay)
             return;
-        
+
         UpdateTimeLimits();
 
         //debugText.text = string.Format("D : {0:F3}, M : {1:F3} , S : {2:F3}, E : {3:F3}, FPS : {4:F2}", (time - m.musicTime), m.musicTime, syncedTime, Time.deltaTime, 1.0f / Time.deltaTime);
     }
-    
+
     public Vector3 ScreenToLinePosition(Vector2 _scrn, int _lineNum)
     {
         Vector3 world = Camera.main.ScreenToWorldPoint(_scrn);
@@ -159,7 +161,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void SetSpeed(float _amoount) {
+    public void SetSpeed(float _amoount)
+    {
         speed = _amoount;
     }
 }

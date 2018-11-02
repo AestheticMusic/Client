@@ -42,8 +42,9 @@ public class NoteSpawn : MonoBehaviour
         TextAsset noteDataString = Resources.Load<TextAsset>(g.noteDataPath);
         reader = new NoteDataReader();
         reader.ReadData(noteDataString.text);
-        
+
         noteDatas = reader.datas;
+        //StartCoroutine(DebugNormalNote());
         g.bpm = reader.startBPM;
         g.noteSync = reader.noteSync;
         

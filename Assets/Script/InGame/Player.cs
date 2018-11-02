@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
             ani.SetInteger("Dir", 1);
             ani.SetInteger("Category", _category);
             AnimationAmount amount = GetAnimationAmount(state, _category);
-            ani.SetFloat("Kind", (1 / amount.multiple) * Random.Range(0, amount.multiple + 1));
+            ani.SetFloat("Kind", amount.GetRandomAmountMutiple());
             ani.SetTrigger("Action");
         }
         else if (isAttackDir[0] || isAttackDir[1])
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
             ani.SetInteger("Dir", 0);
             ani.SetInteger("Category", _category);
             AnimationAmount amount = GetAnimationAmount(state, _category);
-            ani.SetFloat("Kind", (1 / amount.single) * Random.Range(0, amount.single + 1));
+            ani.SetFloat("Kind", amount.GetRandomAmountSingle());
             ani.SetTrigger("Action");
         }
         else
@@ -237,5 +237,33 @@ public class AnimationAmount
 
     public int single;
     public int multiple;
+
+    public int GetAmountSingle() {
+        return single;
+    }
+
+    public float GetAmountSingleDivid()
+    {
+        return (float)1 / (single - 1);
+    }
+
+    public int GetAmountMutiple()
+    {
+        return multiple;
+    }
+
+    public float GetAmountMultipleDivid()
+    {
+        return (float)1 / (multiple - 1);
+    }
+
+    public float GetRandomAmountSingle() {
+        return Random.Range(0,single)*GetAmountSingleDivid();
+    }
+
+    public float GetRandomAmountMutiple()
+    {
+        return Random.Range(0, multiple) * GetAmountMultipleDivid();
+    }
 
 }

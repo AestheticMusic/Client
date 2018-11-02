@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Guntle
+  m_Controller: {fileID: 9100000, guid: ea856fc7445857444ab1e83cfa9dc784, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1e82286ef360cdc4083cad8f145d2cc9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 789a54a41385e47448e8d9821a375c90, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7533e96d0e4422a4187b016cebc59b3f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f6e3b21ff0e5734c87806ffbdc8a6a6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7c2edbc4e6977d548b4a5ab6df748297, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: db440b89a5480dd44a993689e2a3322b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7844e4c1204f3474fb7870b7f19af73b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d96c4332cfe287240a64b757a433ff40, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0f1b48ff40da3704aa2b0c82d35d9d2d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d7cab61a46d2e0d4c90ec08975fba2d8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7dbb3142258c0ed479ab581b33d304ab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ba376665632d0e34a9c3af1631168afe, type: 2}

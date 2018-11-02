@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -68,11 +69,11 @@ TagManager:
   - name: upLeg
     uniqueID: 571302735
     locked: 0
-  - name: upWeapon
-    uniqueID: 1662794173
-    locked: 0
   - name: upArm
     uniqueID: 2983949761
+    locked: 0
+  - name: upWeapon
+    uniqueID: 1662794173
     locked: 0
   - name: UI
     uniqueID: 519437197
